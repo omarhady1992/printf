@@ -11,5 +11,5 @@
 int _putchar(int c);
 int _puts(char *str);
 
-
+int _printf(const char *format, ...);
 #endif
