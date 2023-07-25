@@ -1,2 +1,1 @@
-This is the printf shared project to Alx low level programming course
-this is an edit by Galal
+this is a fresh start in the printf project
