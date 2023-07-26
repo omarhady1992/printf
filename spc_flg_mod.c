@@ -48,13 +48,9 @@ int assign_print_f(char *s, va_list ap, params_t *params)
 {
 	int (*f)(va_list, params_t *) = get_spec(s);
 
-	switch (f)
-	{
-		case true:
-			return (f(ap, params));
-		default:
-			return (0);
-	}
+	if (f)
+		return (f(ap, params));
+	return (0);
 }
 
 /**

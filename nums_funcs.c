@@ -8,39 +8,30 @@
  * @params: is the parameter struct
  */
 
-char *_itoa(long int n, int base, int flag, param_t *params)
+char *_itoa(long int num, int base, int flags, params_t *params)
 {
-     static char *array;
-     static char buffer[50];
-     char *p;
-     char sign = 0;
-     unsigned long int n = num;
-     (void)params;
+	static char *array;
+	static char buffer[50];
+	char sign = 0;
+	char *ptr;
+	unsigned long n = num;
+	(void)params;
 
-     if (!(flag & CONVERT_UNSIGNED) && num < 0)
-     {
-	     n = -num;
-	     sign = '-';
-     }
-     if (flag & CONVERT_LOWERCASE)
-	     array = "0123456789abcdef";
-     else
-	     array = "0123456789ABCDEF";
-     p = &buffer[49];
-     *p = '\0';
-     while (n != 0)
-     {
-	     *--p = array[n % base];
-	     n /= base;
-     }
-     
-     switch (sign)
-     {
-	     case true:
-		     *--p = sign;
-     }
-     return (p);
-
+	if (!(flags & CONVERT_UNSIGNED) && num < 0)
+	{
+		n = -num;
+		sign = '-';
+	}
+	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	ptr = &buffer[49];
+	*ptr = '\0';
+	do	{
+		*--ptr = array[n % base];
+		n /= base;
+	} while (n != 0);
+	if (sign)
+		*--ptr = sign;
+	return (ptr);
 }
 
 

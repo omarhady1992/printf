@@ -1,38 +1,38 @@
 #include "main.h"
 
 /**
- * print_char - print chars
+ * print_c- print chars
  *
  * @list_args:  pointer
  * @param: parameters struct
  *
  * Return: number chars printed
  */
-int print_char(va_list list_args, params_t *param)
+int print_c(va_list list_args, params_t *param)
 {
 	char empty_string = ' ';
-	unsigned int padding = 1, count = 0, char = va_arg(list_args, int);
+	unsigned int padding = 1, count = 0, cha = va_arg(list_args, int);
 
 	if (param->minus_flag)
-		count += _putchar(char);
+		count += _putchar(cha);
 
 	while (padding++ < param->width)
 		count += _putchar(empty_string);
 
 	if (!param->minus_flag)
-		count += _putchar(char);
+		count += _putchar(cha);
 
 	return (count);
 }
 
 /**
- * print_int - print integer
+ * print_i- print integer
  * @ap: pointer
  * @params: the parameters struct
  *
  * Return: number chars printed
  */
-int print_int(va_list ap, params_t *params)
+int print_i(va_list ap, params_t *params)
 {
 	long l;
 
@@ -42,17 +42,17 @@ int print_int(va_list ap, params_t *params)
 		l = (short int)va_arg(ap, int);
 	else
 		l = (int)va_arg(ap, int);
-	return (print_number(convert(l, 10, 0, params), params));
+	return (print_number(_itoa(l, 10, 0, params), params));
 }
 
 /**
- * print_string - prints string
+ * print_s-prints string
  * @ap: argument pointer
  * @params: the parameters struct
  *
  * Return: number chars printed
  */
-int print_string(va_list ap, params_t *params)
+int print_s(va_list ap, params_t *params)
 {
 	char *str = va_arg(ap, char *), pad_char = ' ';
 	unsigned int pad = 0, sum = 0, i = 0, j;
@@ -88,7 +88,7 @@ int print_string(va_list ap, params_t *params)
 }
 
 /**
- * print_percent - prints string
+ * print_percent-prints string
  * @ap: argument pointer
  * @params: the parameters struct
  *
@@ -102,7 +102,7 @@ int print_percent(va_list ap, params_t *params)
 }
 
 /**
- * print_S - custom format specifier
+ * print_S-custom format specifier
  * @ap: argument pointer
  * @params: the parameters struct
  *
@@ -122,7 +122,7 @@ int print_S(va_list ap, params_t *params)
 		{
 			sum += _putchar('\\');
 			sum += _putchar('x');
-			hex = convert(*str, 16, 0, params);
+			hex = _itoa(*str, 16, 0, params);
 			if (!hex[1])
 				sum += _putchar('0');
 			sum += _puts(hex);

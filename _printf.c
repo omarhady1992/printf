@@ -3,7 +3,6 @@
 /**
  * _printf - prints to std out
  * @format: of the input to be printed
- *
  * Return: how many chars printed
  */
 
@@ -36,18 +35,18 @@ int _printf(const char *format, ...)
 		{
 			ptr++;
 		}
-		ptr = get_width(ptr, &param, list_args);
+		ptr = get_w(ptr, &param, list_args);
 
-		ptr = get_precision(ptr, &param, list_args);
+		ptr = get_prec(ptr, &param, list_args);
 
-		if (get_modifier(ptr, &param))
+		if (get_mod(ptr, &param))
 			ptr++;
 
-		if (!get_specifier(ptr))
+		if (!get_spec(ptr))
 			count += print_from_to(start, ptr,
 					param.l_modifier || param.h_modifier ? ptr - 1 : 0);
 		else
-			count += get_print_func(ptr, list_args, &param);
+			count += assign_print_f(ptr, list_args, &param);
 	}
 
 	_putchar(BUF_FLUSH);
