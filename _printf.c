@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 
 	for (ptr = (char *)format; *ptr; ptr++)
 	{
-		init_params(&param, list_args);
+		initiate_parameters(&param, list_args);
 		if (*ptr != '%')
 		{
 			count += _putchar(*ptr);
