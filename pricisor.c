@@ -2,7 +2,7 @@
 
 /**
  * get_prec-extracts precisiors
- * @p: the format string
+ * @ptr: the format string
  * @params: the parameters struct
  * @ap: the argument pointer
  * Return: new pointer

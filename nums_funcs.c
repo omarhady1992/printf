@@ -4,8 +4,9 @@
  * _itoa- function that imitates itoa for numbers
  * @num: integer input
  * @base: the base of number (binary, dec, hex)
- * @flag: argument flags
+ * @flags: argument flags
  * @params: is the parameter struct
+ * Return: pointer
  */
 
 char *_itoa(long int num, int base, int flags, params_t *params)

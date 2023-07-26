@@ -56,10 +56,8 @@ int print_number(char *str, params_t *params)
 	{
 		case false:
 			return (print_number_right(str, params));
-			break;
 		case true:
 			return (print_number_left(str, params));
-			break;
 	}
 }
 

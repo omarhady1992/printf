@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * initate_parameters-clears
+ * initiate_parameters-clears
  * @params: the parameters struct
  * @ap: the argument pointer
  * Return: nothingness

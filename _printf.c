@@ -32,23 +32,17 @@ int _printf(const char *format, ...)
 		start = ptr;
 		ptr++;
 		while (get_flag(ptr, &param))
-		{
 			ptr++;
-		}
 		ptr = get_w(ptr, &param, list_args);
-
 		ptr = get_prec(ptr, &param, list_args);
-
 		if (get_mod(ptr, &param))
 			ptr++;
-
 		if (!get_spec(ptr))
 			count += print_from_to(start, ptr,
 					param.l_modifier || param.h_modifier ? ptr - 1 : 0);
 		else
 			count += assign_print_f(ptr, list_args, &param);
 	}
-
 	_putchar(BUF_FLUSH);
 	va_end(list_args);
 	return (count);
